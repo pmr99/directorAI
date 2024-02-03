@@ -1,5 +1,49 @@
 .App {
   text-align: center;
+  min-height: 100%;
+}
+
+@media (min-width: 857px) {
+  .flexbox-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+  }
+.menu {
+  min-width: 200px;
+  width: 35%;
+  position: sticky;
+  position: -webkit-sticky;
+  top: 55px;
+  background-color: #3e3e42;
+  color: white;
+  padding: 24px;
+  height: 100%;
+}
+.content {
+  width: 65%;
+}
+}
+@media (max-width: 857px) {
+  .flexbox-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .menu {
+    width: 100%;
+    position: static;
+    background-color: #3e3e42;
+    color: white;
+    padding: 24px;
+  }
+  .content {
+    width: 100%;
+    margin-left: 0;
+  }
+
+}
+
+html, body, #app, #app>div{
+  height: 100%
 }
 
 .App-logo {
