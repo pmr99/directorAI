@@ -5,10 +5,11 @@ import { Card } from 'react-bootstrap';
 import Spinner from 'react-bootstrap/Spinner';
 import { BiSolidError } from "react-icons/bi";
 import { processImagePrompt } from './endpoint';
+import logo from './img/ailogo.png'
 const JSON5 = require('json5')
 
-const welcomeHeaderText = "Welcome to DirectorAI."
-const welcomeBodyText = "Enter your business details or campaign idea, and DirectorAI will generate a tailored marketing video concept! Utilizing chatGPT and DALL·E-2, I've prompt engineered short-form video marketing principles to produce practical concepts that can be used as a starting point for the ideation process."
+const welcomeHeaderText = "Welcome to DirectorAI"
+const welcomeBodyText = "Enter your business details or campaign idea, and DirectorAI will generate a tailored marketing video concept! Utilizing chatGPT and DALL·E-2, I've prompt engineered short-form video marketing principles to produce practical and personalized creative concepts."
 const errorText = "Unfortunately, we can't load the information you are requesting, please contact the developer."
 const OpenAI = require('openai');
 const openai = new OpenAI({ apiKey: process.env.REACT_APP_APIKEY, dangerouslyAllowBrowser: true });
@@ -58,8 +59,13 @@ function Datafetcher({ inputData }) {
 
 function WelcomeInformation() {
     return (
-        <div style={{ marginTop: "24%", marginLeft: "20%", marginRight: "20%", marginBottom: "24%"}}>
+        <div style={{ marginTop: "12%", marginLeft: "20%", marginRight: "20%", marginBottom: "0%"}}>
             <h1 style={{ textAlign: "center", marginBottom: "16px" }}> {welcomeHeaderText}</h1>
+            <div className = "hyperlink"> <a href = "https://www.pradeepmanirathnam.com/code/directorai">
+            <img src = {logo} style ={{width: "70%", marginLeft: "auto", marginRight: "auto", display: "block"}}/>
+            <p style={{ textAlign: "center"}}> <a href = "https://www.pradeepmanirathnam.com/code/directorai" style = {{textDecoration: "none", color: "#0000EE"}}> Learn more about DirectorAI</a> </p> 
+            </a>
+            </div>
             <p style={{ textAlign: "center" }}> {welcomeBodyText}</p>
         </div>
     )

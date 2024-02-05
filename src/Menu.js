@@ -19,6 +19,7 @@ function Menu({ whenClickedSubmit }) {
     const [targetAudienceData, setTargetAudience] = useState("")
     const [highlightData, setHighlight] = useState("")
     const [toneData, setTone] = useState("")
+    const [isabled, setisabled] = useState(true)
     return (
         <div className = "menu">
             <h3 style = {{textAlign: "center"}}> {menuTitle} </h3>
@@ -29,9 +30,13 @@ function Menu({ whenClickedSubmit }) {
                     <SingleForm title={tone} placeholder={tonePlaceholder} change={setTone} />
                 </Form>
                     <div style={{ display: "flex", justifyContent: "center", paddingBottom: "20px" }}>
-                        <Button onClick={() => whenClickedSubmit(processInput([businessDescriptionData, targetAudienceData, highlightData, toneData]))} centered variant="primary" type="button" style={{ width: "50%" }}>
+                        {isabled? 
+                        <Button onClick={() => 
+                        {   setisabled(false)
+                            whenClickedSubmit(processInput([businessDescriptionData, targetAudienceData, highlightData, toneData]))}} centered variant="primary" type="button" style={{ width: "50%" }}>
                             Create my Video Concept!
-                        </Button>
+                        </Button>:
+                        <Button disabled> Thank you for using DirectorAI!</Button>}
                     </div>
                 
 
